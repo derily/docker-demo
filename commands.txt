@@ -8,3 +8,11 @@ docker push derily/get-started:part2
 docker swarm init
 docker stack deploy -c docker-compose.yml getstartedlab
 docker service ps getstartedlab_web
+
+
+docker swarm集群部署
+eval $(docker-machine env dm1) dm1 is swarm leader
+下面的命令在dm1上执行
+docker stack deploy -c docker-compose.yml getstartedlab
+！注意通过localhost访问会遇到一些问题
+
