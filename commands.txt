@@ -16,3 +16,5 @@ eval $(docker-machine env dm1) dm1 is swarm leader
 docker stack deploy -c docker-compose.yml getstartedlab
 ！注意通过localhost访问会遇到一些问题
 
+docker top $(docker ps -a -q) #停止所有容器
+
