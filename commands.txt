@@ -5,6 +5,10 @@ docker container ls -a / docker container ls
 docker tag friendlyhello derily/get-started:part2
 docker push derily/get-started:part2
 
+docker stop $(docker ps -a -q) #停止所有运行的容器
+docker rm $(docker ps -a -q) #删除所有容器
+docker rmi $(docker images -f "dangling=true" -q) #删除名称为<none>的镜像
+
 docker swarm init
 docker stack deploy -c docker-compose.yml getstartedlab
 docker service ps getstartedlab_web
